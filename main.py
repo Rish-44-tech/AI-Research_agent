@@ -15,8 +15,8 @@ class ResearchResponse(BaseModel):
     summary:str
     sources:list[str]
     tools_used:list[str]
-api_key=os.getenv("GOOGLE_API_KEY")
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash",google_api_key=api_key)
+api_key=os.getenv("GEMINI_API_KEY")
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro",api_key=api_key)
 parser=PydanticOutputParser(pydantic_object=ResearchResponse)
 
 prompt=ChatPromptTemplate.from_messages(
